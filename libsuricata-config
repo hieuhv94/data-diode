@@ -1,0 +1,66 @@
+#! /bin/sh
+
+prefix="/usr/local"
+exec_prefix="${prefix}"
+includedir="${prefix}/include"
+libdir="${exec_prefix}/lib"
+LIBS="-lmagic -lcap-ng -lnuma -lpcap -lnet -ljansson -lpthread -lyaml -lpcre2-8  -lz -lpcap -Wl,-R,/usr/local/lib/x86_64-linux-gnu -lnuma -L/usr/local/lib/x86_64-linux-gnu -Wl,--as-needed -lrte_node -lrte_graph -lrte_pipeline -lrte_table -lrte_pdump -lrte_port -lrte_fib -lrte_pdcp -lrte_ipsec -lrte_vhost -lrte_stack -lrte_security -lrte_sched -lrte_reorder -lrte_rib -lrte_dmadev -lrte_mldev -lrte_regexdev -lrte_rawdev -lrte_power -lrte_pcapng -lrte_member -lrte_lpm -lrte_latencystats -lrte_jobstats -lrte_ip_frag -lrte_gso -lrte_gro -lrte_gpudev -lrte_eventdev -lrte_efd -lrte_distributor -lrte_cryptodev -lrte_compressdev -lrte_cfgfile -lrte_bpf -lrte_bitratestats -lrte_bbdev -lrte_acl -lrte_timer -lrte_hash -lrte_metrics -lrte_cmdline -lrte_pci -lrte_ethdev -lrte_meter -lrte_net -lrte_mbuf -lrte_mempool -lrte_rcu -lrte_ring -lrte_eal -lrte_telemetry -lrte_kvargs -lrte_net_bond -ldl -lrt -lm"
+
+shared_lib="-lsuricata"
+static_lib="-lsuricata_c -lsuricata_rust"
+
+enable_non_bundled_htp="no"
+
+lib="$shared_lib"
+
+show_libs="no"
+show_cflags="no"
+use_static="no"
+
+if [ "$#" = 0 ]; then
+    echo "usage: suricata-config [--cflags] [--libs] [--static]"
+    exit 0
+fi
+
+while [ "$#" != 0 ]
+do
+    case "$1" in
+        --libs)
+            show_libs="yes"
+            ;;
+        --cflags)
+            show_cflags="yes"
+            ;;
+        --static)
+            lib="$static_lib"
+            use_status="yes"
+            ;;
+    esac
+    shift
+done
+
+# If --static wasn't provided, use the static library if the shared
+# library is not available.
+if [ "$use_static" = "no" ]; then
+    if ! test -e "$libdir/libsuricata.so"; then
+        lib="$static_lib"
+    fi
+fi
+
+# If we're using a bundled htp, add it to the libs as well. It will
+# already be present if we're use a non-bundled libhtp.
+if [ "$enable_non_bundled_htp" = "no" ]; then
+    lib="${lib} -lhtp"
+fi
+
+output=""
+
+if [ "$show_cflags" = "yes" ]; then
+    output="${output} -DHAVE_CONFIG_H -I$includedir/suricata"
+fi
+
+if [ "$show_libs" = "yes" ]; then
+    output="${output} -L$libdir $lib $LIBS"
+fi
+
+echo "$output"

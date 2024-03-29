@@ -1,0 +1,5 @@
+util-mpm-ac-ks-small.o: util-mpm-ac-ks-small.c /usr/include/stdc-predef.h \
+ /usr/local/include/rte_config.h /usr/local/include/rte_build_config.h
+/usr/include/stdc-predef.h:
+/usr/local/include/rte_config.h:
+/usr/local/include/rte_build_config.h:
