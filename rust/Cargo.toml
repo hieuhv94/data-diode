@@ -8,7 +8,7 @@ members = [".", "./derive"]
 
 [lib]
 crate-type = ["staticlib", "rlib"]
-path = "/home/suri/workspaces/suricata-7.0.1/rust/src/lib.rs"
+path = "/home/suri/workspaces/data-diode/rust/src/lib.rs"
 name = "suricata"
 
 [profile.release]

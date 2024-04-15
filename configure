@@ -19775,21 +19775,21 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-                libhs_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "libhs" 2>&1`
+	        libhs_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "libhs" 2>&1`
         else
-                libhs_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "libhs" 2>&1`
+	        libhs_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "libhs" 2>&1`
         fi
-        # Put the nasty error message in config.log where it belongs
-        echo "$libhs_PKG_ERRORS" >&5
+	# Put the nasty error message in config.log where it belongs
+	echo "$libhs_PKG_ERRORS" >&5
 
-        with_pkgconfig_libhs=no
+	with_pkgconfig_libhs=no
 elif test $pkg_failed = untried; then
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: no" >&5
 printf "%s\n" "no" >&6; }
-        with_pkgconfig_libhs=no
+	with_pkgconfig_libhs=no
 else
-        libhs_CFLAGS=$pkg_cv_libhs_CFLAGS
-        libhs_LIBS=$pkg_cv_libhs_LIBS
+	libhs_CFLAGS=$pkg_cv_libhs_CFLAGS
+	libhs_LIBS=$pkg_cv_libhs_LIBS
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 printf "%s\n" "yes" >&6; }
 
@@ -20332,24 +20332,24 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-                libnetfilter_queue_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "libnetfilter_queue" 2>&1`
+	        libnetfilter_queue_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "libnetfilter_queue" 2>&1`
         else
-                libnetfilter_queue_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "libnetfilter_queue" 2>&1`
+	        libnetfilter_queue_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "libnetfilter_queue" 2>&1`
         fi
-        # Put the nasty error message in config.log where it belongs
-        echo "$libnetfilter_queue_PKG_ERRORS" >&5
+	# Put the nasty error message in config.log where it belongs
+	echo "$libnetfilter_queue_PKG_ERRORS" >&5
 
-        enable_nfqueue=no
+	enable_nfqueue=no
 elif test $pkg_failed = untried; then
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: no" >&5
 printf "%s\n" "no" >&6; }
-        enable_nfqueue=no
+	enable_nfqueue=no
 else
-        libnetfilter_queue_CFLAGS=$pkg_cv_libnetfilter_queue_CFLAGS
-        libnetfilter_queue_LIBS=$pkg_cv_libnetfilter_queue_LIBS
+	libnetfilter_queue_CFLAGS=$pkg_cv_libnetfilter_queue_CFLAGS
+	libnetfilter_queue_LIBS=$pkg_cv_libnetfilter_queue_LIBS
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 printf "%s\n" "yes" >&6; }
-        enable_nfqueue=yes
+	enable_nfqueue=yes
 fi
         CPPFLAGS="${CPPFLAGS} ${libnetfilter_queue_CFLAGS}"
     fi
@@ -21504,24 +21504,24 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-                PCAP_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "libpcap" 2>&1`
+	        PCAP_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "libpcap" 2>&1`
         else
-                PCAP_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "libpcap" 2>&1`
+	        PCAP_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "libpcap" 2>&1`
         fi
-        # Put the nasty error message in config.log where it belongs
-        echo "$PCAP_PKG_ERRORS" >&5
+	# Put the nasty error message in config.log where it belongs
+	echo "$PCAP_PKG_ERRORS" >&5
 
-        :
+	:
 elif test $pkg_failed = untried; then
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: no" >&5
 printf "%s\n" "no" >&6; }
-        :
+	:
 else
-        PCAP_CFLAGS=$pkg_cv_PCAP_CFLAGS
-        PCAP_LIBS=$pkg_cv_PCAP_LIBS
+	PCAP_CFLAGS=$pkg_cv_PCAP_CFLAGS
+	PCAP_LIBS=$pkg_cv_PCAP_LIBS
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 printf "%s\n" "yes" >&6; }
-        CPPFLAGS="${CPPFLAGS} ${PCAP_CFLAGS}" LIBS="${LIBS} ${PCAP_LIBS}"
+	CPPFLAGS="${CPPFLAGS} ${PCAP_CFLAGS}" LIBS="${LIBS} ${PCAP_LIBS}"
 fi
 
     # Extract the first word of "pcap-config", so it can be a program name with args.
@@ -22156,7 +22156,8 @@ fi
         fi
         CFLAGS="${CFLAGS} `pkg-config --cflags libdpdk`"
         LIBS="${LIBS} -Wl,-R,`pkg-config --libs-only-L libdpdk | cut -c 3-` -lnuma `pkg-config --libs libdpdk`"
-
+        CFLAGS="${CFLAGS} -I /home/suri/workspaces/tldk/x86_64-native-linux-gcc/include"
+        LIBS="${LIBS} -L/home/suri/workspaces/tldk/x86_64-native-linux-gcc/lib -ltle_dring -ltle_l4p -ltle_memtank -ltle_misc -ltle_timer -lrte_ring -lrte_hash"
         if test ! -z "$(ldconfig -p | grep librte_net_bond)"; then
 
 printf "%s\n" "#define HAVE_DPDK_BOND 1" >>confdefs.h
@@ -24796,21 +24797,21 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-                libhtp_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "htp" 2>&1`
+	        libhtp_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "htp" 2>&1`
         else
-                libhtp_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "htp" 2>&1`
+	        libhtp_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "htp" 2>&1`
         fi
-        # Put the nasty error message in config.log where it belongs
-        echo "$libhtp_PKG_ERRORS" >&5
+	# Put the nasty error message in config.log where it belongs
+	echo "$libhtp_PKG_ERRORS" >&5
 
-        with_pkgconfig_htp=no
+	with_pkgconfig_htp=no
 elif test $pkg_failed = untried; then
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: no" >&5
 printf "%s\n" "no" >&6; }
-        with_pkgconfig_htp=no
+	with_pkgconfig_htp=no
 else
-        libhtp_CFLAGS=$pkg_cv_libhtp_CFLAGS
-        libhtp_LIBS=$pkg_cv_libhtp_LIBS
+	libhtp_CFLAGS=$pkg_cv_libhtp_CFLAGS
+	libhtp_LIBS=$pkg_cv_libhtp_LIBS
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 printf "%s\n" "yes" >&6; }
 
@@ -24960,24 +24961,24 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-                LIBHTPMINVERSION_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "htp >= 0.5.45" 2>&1`
+	        LIBHTPMINVERSION_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "htp >= 0.5.45" 2>&1`
         else
-                LIBHTPMINVERSION_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "htp >= 0.5.45" 2>&1`
+	        LIBHTPMINVERSION_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "htp >= 0.5.45" 2>&1`
         fi
-        # Put the nasty error message in config.log where it belongs
-        echo "$LIBHTPMINVERSION_PKG_ERRORS" >&5
+	# Put the nasty error message in config.log where it belongs
+	echo "$LIBHTPMINVERSION_PKG_ERRORS" >&5
 
-        libhtp_minver_found="no"
+	libhtp_minver_found="no"
 elif test $pkg_failed = untried; then
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: no" >&5
 printf "%s\n" "no" >&6; }
-        libhtp_minver_found="no"
+	libhtp_minver_found="no"
 else
-        LIBHTPMINVERSION_CFLAGS=$pkg_cv_LIBHTPMINVERSION_CFLAGS
-        LIBHTPMINVERSION_LIBS=$pkg_cv_LIBHTPMINVERSION_LIBS
+	LIBHTPMINVERSION_CFLAGS=$pkg_cv_LIBHTPMINVERSION_CFLAGS
+	LIBHTPMINVERSION_LIBS=$pkg_cv_LIBHTPMINVERSION_LIBS
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 printf "%s\n" "yes" >&6; }
-        libhtp_minver_found="yes"
+	libhtp_minver_found="yes"
 fi
         if test "$libhtp_minver_found" = "no"; then
 
@@ -25032,24 +25033,24 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-                LIBHTPDEVVERSION_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "htp = 0.5.X" 2>&1`
+	        LIBHTPDEVVERSION_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "htp = 0.5.X" 2>&1`
         else
-                LIBHTPDEVVERSION_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "htp = 0.5.X" 2>&1`
+	        LIBHTPDEVVERSION_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "htp = 0.5.X" 2>&1`
         fi
-        # Put the nasty error message in config.log where it belongs
-        echo "$LIBHTPDEVVERSION_PKG_ERRORS" >&5
+	# Put the nasty error message in config.log where it belongs
+	echo "$LIBHTPDEVVERSION_PKG_ERRORS" >&5
 
-        libhtp_devver_found="no"
+	libhtp_devver_found="no"
 elif test $pkg_failed = untried; then
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: no" >&5
 printf "%s\n" "no" >&6; }
-        libhtp_devver_found="no"
+	libhtp_devver_found="no"
 else
-        LIBHTPDEVVERSION_CFLAGS=$pkg_cv_LIBHTPDEVVERSION_CFLAGS
-        LIBHTPDEVVERSION_LIBS=$pkg_cv_LIBHTPDEVVERSION_LIBS
+	LIBHTPDEVVERSION_CFLAGS=$pkg_cv_LIBHTPDEVVERSION_CFLAGS
+	LIBHTPDEVVERSION_LIBS=$pkg_cv_LIBHTPDEVVERSION_LIBS
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 printf "%s\n" "yes" >&6; }
-        libhtp_devver_found="yes"
+	libhtp_devver_found="yes"
 fi
             if test "$libhtp_devver_found" = "no"; then
                 echo
@@ -26458,12 +26459,12 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-                LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua" 2>&1`
         else
-                LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua" 2>&1`
         fi
-        # Put the nasty error message in config.log where it belongs
-        echo "$LUA_PKG_ERRORS" >&5
+	# Put the nasty error message in config.log where it belongs
+	echo "$LUA_PKG_ERRORS" >&5
 
 
 
@@ -26518,12 +26519,12 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-                LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua5.1" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua5.1" 2>&1`
         else
-                LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua5.1" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua5.1" 2>&1`
         fi
-        # Put the nasty error message in config.log where it belongs
-        echo "$LUA_PKG_ERRORS" >&5
+	# Put the nasty error message in config.log where it belongs
+	echo "$LUA_PKG_ERRORS" >&5
 
 
 
@@ -26578,12 +26579,12 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-                LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua-5.1" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua-5.1" 2>&1`
         else
-                LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua-5.1" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua-5.1" 2>&1`
         fi
-        # Put the nasty error message in config.log where it belongs
-        echo "$LUA_PKG_ERRORS" >&5
+	# Put the nasty error message in config.log where it belongs
+	echo "$LUA_PKG_ERRORS" >&5
 
 
 
@@ -26638,12 +26639,12 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-                LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua51" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua51" 2>&1`
         else
-                LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua51" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua51" 2>&1`
         fi
-        # Put the nasty error message in config.log where it belongs
-        echo "$LUA_PKG_ERRORS" >&5
+	# Put the nasty error message in config.log where it belongs
+	echo "$LUA_PKG_ERRORS" >&5
 
 
                             LUA="no"
@@ -26655,11 +26656,11 @@ printf "%s\n" "no" >&6; }
                             LUA="no"
 
 else
-        LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
-        LUA_LIBS=$pkg_cv_LUA_LIBS
+	LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
+	LUA_LIBS=$pkg_cv_LUA_LIBS
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 printf "%s\n" "yes" >&6; }
-        LUA="yes"
+	LUA="yes"
 fi
 
 elif test $pkg_failed = untried; then
@@ -26718,12 +26719,12 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-                LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua51" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua51" 2>&1`
         else
-                LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua51" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua51" 2>&1`
         fi
-        # Put the nasty error message in config.log where it belongs
-        echo "$LUA_PKG_ERRORS" >&5
+	# Put the nasty error message in config.log where it belongs
+	echo "$LUA_PKG_ERRORS" >&5
 
 
                             LUA="no"
@@ -26735,19 +26736,19 @@ printf "%s\n" "no" >&6; }
                             LUA="no"
 
 else
-        LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
-        LUA_LIBS=$pkg_cv_LUA_LIBS
+	LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
+	LUA_LIBS=$pkg_cv_LUA_LIBS
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 printf "%s\n" "yes" >&6; }
-        LUA="yes"
+	LUA="yes"
 fi
 
 else
-        LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
-        LUA_LIBS=$pkg_cv_LUA_LIBS
+	LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
+	LUA_LIBS=$pkg_cv_LUA_LIBS
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 printf "%s\n" "yes" >&6; }
-        LUA="yes"
+	LUA="yes"
 fi
 
 elif test $pkg_failed = untried; then
@@ -26806,12 +26807,12 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-                LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua-5.1" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua-5.1" 2>&1`
         else
-                LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua-5.1" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua-5.1" 2>&1`
         fi
-        # Put the nasty error message in config.log where it belongs
-        echo "$LUA_PKG_ERRORS" >&5
+	# Put the nasty error message in config.log where it belongs
+	echo "$LUA_PKG_ERRORS" >&5
 
 
 
@@ -26866,12 +26867,12 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-                LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua51" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua51" 2>&1`
         else
-                LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua51" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua51" 2>&1`
         fi
-        # Put the nasty error message in config.log where it belongs
-        echo "$LUA_PKG_ERRORS" >&5
+	# Put the nasty error message in config.log where it belongs
+	echo "$LUA_PKG_ERRORS" >&5
 
 
                             LUA="no"
@@ -26883,11 +26884,11 @@ printf "%s\n" "no" >&6; }
                             LUA="no"
 
 else
-        LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
-        LUA_LIBS=$pkg_cv_LUA_LIBS
+	LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
+	LUA_LIBS=$pkg_cv_LUA_LIBS
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 printf "%s\n" "yes" >&6; }
-        LUA="yes"
+	LUA="yes"
 fi
 
 elif test $pkg_failed = untried; then
@@ -26946,12 +26947,12 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-                LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua51" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua51" 2>&1`
         else
-                LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua51" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua51" 2>&1`
         fi
-        # Put the nasty error message in config.log where it belongs
-        echo "$LUA_PKG_ERRORS" >&5
+	# Put the nasty error message in config.log where it belongs
+	echo "$LUA_PKG_ERRORS" >&5
 
 
                             LUA="no"
@@ -26963,27 +26964,27 @@ printf "%s\n" "no" >&6; }
                             LUA="no"
 
 else
-        LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
-        LUA_LIBS=$pkg_cv_LUA_LIBS
+	LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
+	LUA_LIBS=$pkg_cv_LUA_LIBS
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 printf "%s\n" "yes" >&6; }
-        LUA="yes"
+	LUA="yes"
 fi
 
 else
-        LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
-        LUA_LIBS=$pkg_cv_LUA_LIBS
+	LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
+	LUA_LIBS=$pkg_cv_LUA_LIBS
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 printf "%s\n" "yes" >&6; }
-        LUA="yes"
+	LUA="yes"
 fi
 
 else
-        LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
-        LUA_LIBS=$pkg_cv_LUA_LIBS
+	LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
+	LUA_LIBS=$pkg_cv_LUA_LIBS
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 printf "%s\n" "yes" >&6; }
-        LUA="yes"
+	LUA="yes"
 fi
 
 elif test $pkg_failed = untried; then
@@ -27042,12 +27043,12 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-                LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua5.1" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua5.1" 2>&1`
         else
-                LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua5.1" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua5.1" 2>&1`
         fi
-        # Put the nasty error message in config.log where it belongs
-        echo "$LUA_PKG_ERRORS" >&5
+	# Put the nasty error message in config.log where it belongs
+	echo "$LUA_PKG_ERRORS" >&5
 
 
 
@@ -27102,12 +27103,12 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-                LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua-5.1" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua-5.1" 2>&1`
         else
-                LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua-5.1" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua-5.1" 2>&1`
         fi
-        # Put the nasty error message in config.log where it belongs
-        echo "$LUA_PKG_ERRORS" >&5
+	# Put the nasty error message in config.log where it belongs
+	echo "$LUA_PKG_ERRORS" >&5
 
 
 
@@ -27162,12 +27163,12 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-                LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua51" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua51" 2>&1`
         else
-                LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua51" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua51" 2>&1`
         fi
-        # Put the nasty error message in config.log where it belongs
-        echo "$LUA_PKG_ERRORS" >&5
+	# Put the nasty error message in config.log where it belongs
+	echo "$LUA_PKG_ERRORS" >&5
 
 
                             LUA="no"
@@ -27179,11 +27180,11 @@ printf "%s\n" "no" >&6; }
                             LUA="no"
 
 else
-        LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
-        LUA_LIBS=$pkg_cv_LUA_LIBS
+	LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
+	LUA_LIBS=$pkg_cv_LUA_LIBS
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 printf "%s\n" "yes" >&6; }
-        LUA="yes"
+	LUA="yes"
 fi
 
 elif test $pkg_failed = untried; then
@@ -27242,12 +27243,12 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-                LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua51" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua51" 2>&1`
         else
-                LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua51" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua51" 2>&1`
         fi
-        # Put the nasty error message in config.log where it belongs
-        echo "$LUA_PKG_ERRORS" >&5
+	# Put the nasty error message in config.log where it belongs
+	echo "$LUA_PKG_ERRORS" >&5
 
 
                             LUA="no"
@@ -27259,19 +27260,19 @@ printf "%s\n" "no" >&6; }
                             LUA="no"
 
 else
-        LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
-        LUA_LIBS=$pkg_cv_LUA_LIBS
+	LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
+	LUA_LIBS=$pkg_cv_LUA_LIBS
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 printf "%s\n" "yes" >&6; }
-        LUA="yes"
+	LUA="yes"
 fi
 
 else
-        LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
-        LUA_LIBS=$pkg_cv_LUA_LIBS
+	LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
+	LUA_LIBS=$pkg_cv_LUA_LIBS
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 printf "%s\n" "yes" >&6; }
-        LUA="yes"
+	LUA="yes"
 fi
 
 elif test $pkg_failed = untried; then
@@ -27330,12 +27331,12 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-                LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua-5.1" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua-5.1" 2>&1`
         else
-                LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua-5.1" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua-5.1" 2>&1`
         fi
-        # Put the nasty error message in config.log where it belongs
-        echo "$LUA_PKG_ERRORS" >&5
+	# Put the nasty error message in config.log where it belongs
+	echo "$LUA_PKG_ERRORS" >&5
 
 
 
@@ -27390,12 +27391,12 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-                LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua51" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua51" 2>&1`
         else
-                LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua51" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua51" 2>&1`
         fi
-        # Put the nasty error message in config.log where it belongs
-        echo "$LUA_PKG_ERRORS" >&5
+	# Put the nasty error message in config.log where it belongs
+	echo "$LUA_PKG_ERRORS" >&5
 
 
                             LUA="no"
@@ -27407,11 +27408,11 @@ printf "%s\n" "no" >&6; }
                             LUA="no"
 
 else
-        LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
-        LUA_LIBS=$pkg_cv_LUA_LIBS
+	LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
+	LUA_LIBS=$pkg_cv_LUA_LIBS
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 printf "%s\n" "yes" >&6; }
-        LUA="yes"
+	LUA="yes"
 fi
 
 elif test $pkg_failed = untried; then
@@ -27470,12 +27471,12 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-                LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua51" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua51" 2>&1`
         else
-                LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua51" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua51" 2>&1`
         fi
-        # Put the nasty error message in config.log where it belongs
-        echo "$LUA_PKG_ERRORS" >&5
+	# Put the nasty error message in config.log where it belongs
+	echo "$LUA_PKG_ERRORS" >&5
 
 
                             LUA="no"
@@ -27487,35 +27488,35 @@ printf "%s\n" "no" >&6; }
                             LUA="no"
 
 else
-        LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
-        LUA_LIBS=$pkg_cv_LUA_LIBS
+	LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
+	LUA_LIBS=$pkg_cv_LUA_LIBS
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 printf "%s\n" "yes" >&6; }
-        LUA="yes"
+	LUA="yes"
 fi
 
 else
-        LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
-        LUA_LIBS=$pkg_cv_LUA_LIBS
+	LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
+	LUA_LIBS=$pkg_cv_LUA_LIBS
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 printf "%s\n" "yes" >&6; }
-        LUA="yes"
+	LUA="yes"
 fi
 
 else
-        LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
-        LUA_LIBS=$pkg_cv_LUA_LIBS
+	LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
+	LUA_LIBS=$pkg_cv_LUA_LIBS
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 printf "%s\n" "yes" >&6; }
-        LUA="yes"
+	LUA="yes"
 fi
 
 else
-        LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
-        LUA_LIBS=$pkg_cv_LUA_LIBS
+	LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
+	LUA_LIBS=$pkg_cv_LUA_LIBS
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 printf "%s\n" "yes" >&6; }
-        LUA="yes"
+	LUA="yes"
 fi
             CPPFLAGS="${CPPFLAGS} ${LUA_CFLAGS}"
         fi
@@ -27649,12 +27650,12 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-                LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua" 2>&1`
         else
-                LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua" 2>&1`
         fi
-        # Put the nasty error message in config.log where it belongs
-        echo "$LUA_PKG_ERRORS" >&5
+	# Put the nasty error message in config.log where it belongs
+	echo "$LUA_PKG_ERRORS" >&5
 
 
 
@@ -27709,12 +27710,12 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-                LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua5.1" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua5.1" 2>&1`
         else
-                LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua5.1" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua5.1" 2>&1`
         fi
-        # Put the nasty error message in config.log where it belongs
-        echo "$LUA_PKG_ERRORS" >&5
+	# Put the nasty error message in config.log where it belongs
+	echo "$LUA_PKG_ERRORS" >&5
 
 
 
@@ -27769,12 +27770,12 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-                LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua-5.1" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua-5.1" 2>&1`
         else
-                LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua-5.1" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua-5.1" 2>&1`
         fi
-        # Put the nasty error message in config.log where it belongs
-        echo "$LUA_PKG_ERRORS" >&5
+	# Put the nasty error message in config.log where it belongs
+	echo "$LUA_PKG_ERRORS" >&5
 
 
 
@@ -27829,12 +27830,12 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-                LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua51" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua51" 2>&1`
         else
-                LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua51" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua51" 2>&1`
         fi
-        # Put the nasty error message in config.log where it belongs
-        echo "$LUA_PKG_ERRORS" >&5
+	# Put the nasty error message in config.log where it belongs
+	echo "$LUA_PKG_ERRORS" >&5
 
 
                                 LUA="no"
@@ -27846,11 +27847,11 @@ printf "%s\n" "no" >&6; }
                                 LUA="no"
 
 else
-        LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
-        LUA_LIBS=$pkg_cv_LUA_LIBS
+	LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
+	LUA_LIBS=$pkg_cv_LUA_LIBS
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 printf "%s\n" "yes" >&6; }
-        LUA="yes"
+	LUA="yes"
 fi
 
 elif test $pkg_failed = untried; then
@@ -27909,12 +27910,12 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-                LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua51" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua51" 2>&1`
         else
-                LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua51" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua51" 2>&1`
         fi
-        # Put the nasty error message in config.log where it belongs
-        echo "$LUA_PKG_ERRORS" >&5
+	# Put the nasty error message in config.log where it belongs
+	echo "$LUA_PKG_ERRORS" >&5
 
 
                                 LUA="no"
@@ -27926,19 +27927,19 @@ printf "%s\n" "no" >&6; }
                                 LUA="no"
 
 else
-        LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
-        LUA_LIBS=$pkg_cv_LUA_LIBS
+	LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
+	LUA_LIBS=$pkg_cv_LUA_LIBS
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 printf "%s\n" "yes" >&6; }
-        LUA="yes"
+	LUA="yes"
 fi
 
 else
-        LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
-        LUA_LIBS=$pkg_cv_LUA_LIBS
+	LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
+	LUA_LIBS=$pkg_cv_LUA_LIBS
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 printf "%s\n" "yes" >&6; }
-        LUA="yes"
+	LUA="yes"
 fi
 
 elif test $pkg_failed = untried; then
@@ -27997,12 +27998,12 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-                LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua-5.1" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua-5.1" 2>&1`
         else
-                LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua-5.1" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua-5.1" 2>&1`
         fi
-        # Put the nasty error message in config.log where it belongs
-        echo "$LUA_PKG_ERRORS" >&5
+	# Put the nasty error message in config.log where it belongs
+	echo "$LUA_PKG_ERRORS" >&5
 
 
 
@@ -28057,12 +28058,12 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-                LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua51" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua51" 2>&1`
         else
-                LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua51" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua51" 2>&1`
         fi
-        # Put the nasty error message in config.log where it belongs
-        echo "$LUA_PKG_ERRORS" >&5
+	# Put the nasty error message in config.log where it belongs
+	echo "$LUA_PKG_ERRORS" >&5
 
 
                                 LUA="no"
@@ -28074,11 +28075,11 @@ printf "%s\n" "no" >&6; }
                                 LUA="no"
 
 else
-        LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
-        LUA_LIBS=$pkg_cv_LUA_LIBS
+	LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
+	LUA_LIBS=$pkg_cv_LUA_LIBS
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 printf "%s\n" "yes" >&6; }
-        LUA="yes"
+	LUA="yes"
 fi
 
 elif test $pkg_failed = untried; then
@@ -28137,12 +28138,12 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-                LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua51" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua51" 2>&1`
         else
-                LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua51" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua51" 2>&1`
         fi
-        # Put the nasty error message in config.log where it belongs
-        echo "$LUA_PKG_ERRORS" >&5
+	# Put the nasty error message in config.log where it belongs
+	echo "$LUA_PKG_ERRORS" >&5
 
 
                                 LUA="no"
@@ -28154,27 +28155,27 @@ printf "%s\n" "no" >&6; }
                                 LUA="no"
 
 else
-        LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
-        LUA_LIBS=$pkg_cv_LUA_LIBS
+	LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
+	LUA_LIBS=$pkg_cv_LUA_LIBS
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 printf "%s\n" "yes" >&6; }
-        LUA="yes"
+	LUA="yes"
 fi
 
 else
-        LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
-        LUA_LIBS=$pkg_cv_LUA_LIBS
+	LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
+	LUA_LIBS=$pkg_cv_LUA_LIBS
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 printf "%s\n" "yes" >&6; }
-        LUA="yes"
+	LUA="yes"
 fi
 
 else
-        LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
-        LUA_LIBS=$pkg_cv_LUA_LIBS
+	LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
+	LUA_LIBS=$pkg_cv_LUA_LIBS
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 printf "%s\n" "yes" >&6; }
-        LUA="yes"
+	LUA="yes"
 fi
 
 elif test $pkg_failed = untried; then
@@ -28233,12 +28234,12 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-                LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua5.1" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua5.1" 2>&1`
         else
-                LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua5.1" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua5.1" 2>&1`
         fi
-        # Put the nasty error message in config.log where it belongs
-        echo "$LUA_PKG_ERRORS" >&5
+	# Put the nasty error message in config.log where it belongs
+	echo "$LUA_PKG_ERRORS" >&5
 
 
 
@@ -28293,12 +28294,12 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-                LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua-5.1" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua-5.1" 2>&1`
         else
-                LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua-5.1" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua-5.1" 2>&1`
         fi
-        # Put the nasty error message in config.log where it belongs
-        echo "$LUA_PKG_ERRORS" >&5
+	# Put the nasty error message in config.log where it belongs
+	echo "$LUA_PKG_ERRORS" >&5
 
 
 
@@ -28353,12 +28354,12 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-                LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua51" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua51" 2>&1`
         else
-                LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua51" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua51" 2>&1`
         fi
-        # Put the nasty error message in config.log where it belongs
-        echo "$LUA_PKG_ERRORS" >&5
+	# Put the nasty error message in config.log where it belongs
+	echo "$LUA_PKG_ERRORS" >&5
 
 
                                 LUA="no"
@@ -28370,11 +28371,11 @@ printf "%s\n" "no" >&6; }
                                 LUA="no"
 
 else
-        LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
-        LUA_LIBS=$pkg_cv_LUA_LIBS
+	LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
+	LUA_LIBS=$pkg_cv_LUA_LIBS
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 printf "%s\n" "yes" >&6; }
-        LUA="yes"
+	LUA="yes"
 fi
 
 elif test $pkg_failed = untried; then
@@ -28433,12 +28434,12 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-                LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua51" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua51" 2>&1`
         else
-                LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua51" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua51" 2>&1`
         fi
-        # Put the nasty error message in config.log where it belongs
-        echo "$LUA_PKG_ERRORS" >&5
+	# Put the nasty error message in config.log where it belongs
+	echo "$LUA_PKG_ERRORS" >&5
 
 
                                 LUA="no"
@@ -28450,19 +28451,19 @@ printf "%s\n" "no" >&6; }
                                 LUA="no"
 
 else
-        LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
-        LUA_LIBS=$pkg_cv_LUA_LIBS
+	LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
+	LUA_LIBS=$pkg_cv_LUA_LIBS
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 printf "%s\n" "yes" >&6; }
-        LUA="yes"
+	LUA="yes"
 fi
 
 else
-        LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
-        LUA_LIBS=$pkg_cv_LUA_LIBS
+	LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
+	LUA_LIBS=$pkg_cv_LUA_LIBS
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 printf "%s\n" "yes" >&6; }
-        LUA="yes"
+	LUA="yes"
 fi
 
 elif test $pkg_failed = untried; then
@@ -28521,12 +28522,12 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-                LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua-5.1" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua-5.1" 2>&1`
         else
-                LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua-5.1" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua-5.1" 2>&1`
         fi
-        # Put the nasty error message in config.log where it belongs
-        echo "$LUA_PKG_ERRORS" >&5
+	# Put the nasty error message in config.log where it belongs
+	echo "$LUA_PKG_ERRORS" >&5
 
 
 
@@ -28581,12 +28582,12 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-                LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua51" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua51" 2>&1`
         else
-                LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua51" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua51" 2>&1`
         fi
-        # Put the nasty error message in config.log where it belongs
-        echo "$LUA_PKG_ERRORS" >&5
+	# Put the nasty error message in config.log where it belongs
+	echo "$LUA_PKG_ERRORS" >&5
 
 
                                 LUA="no"
@@ -28598,11 +28599,11 @@ printf "%s\n" "no" >&6; }
                                 LUA="no"
 
 else
-        LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
-        LUA_LIBS=$pkg_cv_LUA_LIBS
+	LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
+	LUA_LIBS=$pkg_cv_LUA_LIBS
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 printf "%s\n" "yes" >&6; }
-        LUA="yes"
+	LUA="yes"
 fi
 
 elif test $pkg_failed = untried; then
@@ -28661,12 +28662,12 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-                LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua51" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "lua51" 2>&1`
         else
-                LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua51" 2>&1`
+	        LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "lua51" 2>&1`
         fi
-        # Put the nasty error message in config.log where it belongs
-        echo "$LUA_PKG_ERRORS" >&5
+	# Put the nasty error message in config.log where it belongs
+	echo "$LUA_PKG_ERRORS" >&5
 
 
                                 LUA="no"
@@ -28678,35 +28679,35 @@ printf "%s\n" "no" >&6; }
                                 LUA="no"
 
 else
-        LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
-        LUA_LIBS=$pkg_cv_LUA_LIBS
+	LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
+	LUA_LIBS=$pkg_cv_LUA_LIBS
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 printf "%s\n" "yes" >&6; }
-        LUA="yes"
+	LUA="yes"
 fi
 
 else
-        LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
-        LUA_LIBS=$pkg_cv_LUA_LIBS
+	LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
+	LUA_LIBS=$pkg_cv_LUA_LIBS
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 printf "%s\n" "yes" >&6; }
-        LUA="yes"
+	LUA="yes"
 fi
 
 else
-        LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
-        LUA_LIBS=$pkg_cv_LUA_LIBS
+	LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
+	LUA_LIBS=$pkg_cv_LUA_LIBS
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 printf "%s\n" "yes" >&6; }
-        LUA="yes"
+	LUA="yes"
 fi
 
 else
-        LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
-        LUA_LIBS=$pkg_cv_LUA_LIBS
+	LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
+	LUA_LIBS=$pkg_cv_LUA_LIBS
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 printf "%s\n" "yes" >&6; }
-        LUA="yes"
+	LUA="yes"
 fi
                 LIBS="${LIBS} ${LUA_LIBS}"
             fi
@@ -28859,21 +28860,21 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-                LUAJIT_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "luajit" 2>&1`
+	        LUAJIT_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "luajit" 2>&1`
         else
-                LUAJIT_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "luajit" 2>&1`
+	        LUAJIT_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "luajit" 2>&1`
         fi
-        # Put the nasty error message in config.log where it belongs
-        echo "$LUAJIT_PKG_ERRORS" >&5
+	# Put the nasty error message in config.log where it belongs
+	echo "$LUAJIT_PKG_ERRORS" >&5
 
-        LUAJIT="no"
+	LUAJIT="no"
 elif test $pkg_failed = untried; then
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: no" >&5
 printf "%s\n" "no" >&6; }
-        LUAJIT="no"
+	LUAJIT="no"
 else
-        LUAJIT_CFLAGS=$pkg_cv_LUAJIT_CFLAGS
-        LUAJIT_LIBS=$pkg_cv_LUAJIT_LIBS
+	LUAJIT_CFLAGS=$pkg_cv_LUAJIT_CFLAGS
+	LUAJIT_LIBS=$pkg_cv_LUAJIT_LIBS
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 printf "%s\n" "yes" >&6; }
 
@@ -28945,14 +28946,14 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-                LUAJIT_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "luajit" 2>&1`
+	        LUAJIT_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "luajit" 2>&1`
         else
-                LUAJIT_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "luajit" 2>&1`
+	        LUAJIT_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "luajit" 2>&1`
         fi
-        # Put the nasty error message in config.log where it belongs
-        echo "$LUAJIT_PKG_ERRORS" >&5
+	# Put the nasty error message in config.log where it belongs
+	echo "$LUAJIT_PKG_ERRORS" >&5
 
-        as_fn_error $? "Package requirements (luajit) were not met:
+	as_fn_error $? "Package requirements (luajit) were not met:
 
 $LUAJIT_PKG_ERRORS
 
@@ -28965,7 +28966,7 @@ See the pkg-config man page for more details." "$LINENO" 5
 elif test $pkg_failed = untried; then
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: no" >&5
 printf "%s\n" "no" >&6; }
-        { { printf "%s\n" "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
+	{ { printf "%s\n" "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
 printf "%s\n" "$as_me: error: in \`$ac_pwd':" >&2;}
 as_fn_error $? "The pkg-config script could not be found or is too old.  Make sure it
 is in your PATH or set the PKG_CONFIG environment variable to the full
@@ -28978,8 +28979,8 @@ See the pkg-config man page for more details.
 To get pkg-config, see <http://pkg-config.freedesktop.org/>.
 See \`config.log' for more details" "$LINENO" 5; }
 else
-        LUAJIT_CFLAGS=$pkg_cv_LUAJIT_CFLAGS
-        LUAJIT_LIBS=$pkg_cv_LUAJIT_LIBS
+	LUAJIT_CFLAGS=$pkg_cv_LUAJIT_CFLAGS
+	LUAJIT_LIBS=$pkg_cv_LUAJIT_LIBS
         { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 printf "%s\n" "yes" >&6; }
 
@@ -30580,11 +30581,11 @@ if test x$ac_prog_cxx_stdcxx = xno
 then :
   { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for $CXX option to enable C++11 features" >&5
 printf %s "checking for $CXX option to enable C++11 features... " >&6; }
-if test ${ac_cv_prog_cxx_cxx11+y}
+if test ${ac_cv_prog_cxx_11+y}
 then :
   printf %s "(cached) " >&6
 else $as_nop
-  ac_cv_prog_cxx_cxx11=no
+  ac_cv_prog_cxx_11=no
 ac_save_CXX=$CXX
 cat confdefs.h - <<_ACEOF >conftest.$ac_ext
 /* end confdefs.h.  */
@@ -30626,11 +30627,11 @@ if test x$ac_prog_cxx_stdcxx = xno
 then :
   { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for $CXX option to enable C++98 features" >&5
 printf %s "checking for $CXX option to enable C++98 features... " >&6; }
-if test ${ac_cv_prog_cxx_cxx98+y}
+if test ${ac_cv_prog_cxx_98+y}
 then :
   printf %s "(cached) " >&6
 else $as_nop
-  ac_cv_prog_cxx_cxx98=no
+  ac_cv_prog_cxx_98=no
 ac_save_CXX=$CXX
 cat confdefs.h - <<_ACEOF >conftest.$ac_ext
 /* end confdefs.h.  */

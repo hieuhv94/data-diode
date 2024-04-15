@@ -790,6 +790,7 @@ dpdk:
       # Mac of data diode RX and mac of host RX
       mac-address: 08:00:27:93:9e:df
       host-mac-address: 08:00:27:d1:dc:83
+      proxies: [ 10.1.10.8:6000 ]
 
     - interface: 0000:00:0a.0 # PCIe address of the NIC port
       # Threading: possible values are either "auto" or number of threads
@@ -848,7 +849,6 @@ dpdk:
       tx-descriptors: 1024
       copy-mode: none
       copy-iface: none
-
 
 # Cross platform libpcap capture support
 pcap:
@@ -2193,7 +2193,7 @@ default-rule-path: /var/lib/suricata/rules
 
 rule-files:
   - suricata.rules
-  # - local.rules
+  - local.rules
 ##
 ## Auxiliary configuration files.
 ##

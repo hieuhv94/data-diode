@@ -1099,6 +1099,8 @@ libsuricata_c_a_SOURCES = \
 	tm-queuehandlers.c \
 	tm-queues.c \
 	tm-threads.c \
+	tldk/parse.c \
+	tldk/pkt.c \
 	unix-manager.c \
 	util-action.c \
 	util-affinity.c \

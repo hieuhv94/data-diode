@@ -338,9 +338,9 @@ $(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --gnu contrib/file_processor/Processor/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign contrib/file_processor/Processor/Makefile'; \
 	$(am__cd) $(top_srcdir) && \
-	  $(AUTOMAKE) --gnu contrib/file_processor/Processor/Makefile
+	  $(AUTOMAKE) --foreign contrib/file_processor/Processor/Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
 	  *config.status*) \

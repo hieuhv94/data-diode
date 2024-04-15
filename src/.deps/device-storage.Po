@@ -191,17 +191,18 @@ device-storage.o: device-storage.c /usr/include/stdc-predef.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdatomic.h util-unittest.h \
  queue.h /usr/include/x86_64-linux-gnu/sys/queue.h tree.h \
  device-storage.h util-device.h /usr/local/include/rte_mempool.h \
- /usr/local/include/rte_compat.h /usr/local/include/rte_spinlock.h \
+ /usr/local/include/rte_spinlock.h \
  /usr/local/include/generic/rte_spinlock.h /usr/local/include/rte_lcore.h \
  /usr/local/include/rte_per_lcore.h /usr/include/pthread.h \
  /usr/include/x86_64-linux-gnu/bits/setjmp.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h \
- /usr/local/include/rte_eal.h /usr/local/include/rte_uuid.h \
+ /usr/local/include/rte_eal.h /usr/local/include/rte_compat.h \
+ /usr/local/include/rte_bus.h /usr/local/include/rte_log.h \
+ /usr/local/include/rte_common.h /usr/local/include/rte_os.h \
+ /usr/local/include/rte_dev.h \
  /usr/local/include/rte_pci_dev_feature_defs.h \
- /usr/local/include/rte_launch.h /usr/local/include/rte_thread.h \
- /usr/local/include/rte_os.h /usr/local/include/rte_lock_annotations.h \
- /usr/local/include/rte_pause.h /usr/local/include/generic/rte_pause.h \
- /usr/local/include/rte_common.h /usr/local/include/rte_atomic.h \
+ /usr/local/include/rte_launch.h /usr/local/include/rte_pause.h \
+ /usr/local/include/generic/rte_pause.h /usr/local/include/rte_atomic.h \
  /usr/local/include/generic/rte_atomic.h \
  /usr/local/include/rte_atomic_64.h /usr/local/include/rte_rtm.h \
  /usr/local/include/rte_cpuflags.h \
@@ -210,21 +211,12 @@ device-storage.o: device-storage.c /usr/include/stdc-predef.h \
  /usr/local/include/rte_common.h /usr/local/include/rte_pause.h \
  /usr/local/include/rte_cycles.h /usr/local/include/generic/rte_cycles.h \
  /usr/local/include/rte_debug.h /usr/local/include/rte_log.h \
- /usr/local/include/rte_branch_prediction.h /usr/local/include/rte_ring.h \
- /usr/local/include/rte_ring_core.h /usr/local/include/rte_memory.h \
- /usr/local/include/rte_bitops.h /usr/local/include/rte_fbarray.h \
+ /usr/local/include/rte_memory.h /usr/local/include/rte_fbarray.h \
  /usr/local/include/rte_rwlock.h /usr/local/include/generic/rte_rwlock.h \
- /usr/local/include/rte_spinlock.h /usr/local/include/rte_memzone.h \
- /usr/local/include/rte_ring_elem.h \
- /usr/local/include/rte_ring_elem_pvt.h \
- /usr/local/include/rte_ring_generic_pvt.h \
- /usr/local/include/rte_ring_hts.h \
- /usr/local/include/rte_ring_hts_elem_pvt.h \
- /usr/local/include/rte_ring_rts.h \
- /usr/local/include/rte_ring_rts_elem_pvt.h \
- /usr/local/include/rte_ring_peek.h \
- /usr/local/include/rte_ring_peek_elem_pvt.h \
- /usr/local/include/rte_ring_peek_zc.h /usr/local/include/rte_memcpy.h \
+ /usr/local/include/rte_spinlock.h \
+ /usr/local/include/rte_branch_prediction.h /usr/local/include/rte_ring.h \
+ /usr/local/include/rte_ring_core.h /usr/local/include/rte_memzone.h \
+ /usr/local/include/rte_ring_generic.h /usr/local/include/rte_memcpy.h \
  /usr/local/include/rte_vect.h /usr/local/include/generic/rte_vect.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/x86intrin.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/x86gprintrin.h \
@@ -308,7 +300,8 @@ device-storage.o: device-storage.c /usr/include/stdc-predef.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/xopintrin.h \
  /usr/local/include/rte_mempool_trace_fp.h \
  /usr/local/include/rte_trace_point.h /usr/local/include/rte_cycles.h \
- /usr/local/include/rte_string_fns.h util-storage.h
+ /usr/local/include/rte_string_fns.h /usr/local/include/rte_uuid.h \
+ util-storage.h
 /usr/include/stdc-predef.h:
 /usr/local/include/rte_config.h:
 /usr/local/include/rte_build_config.h:
@@ -555,7 +548,6 @@ tree.h:
 device-storage.h:
 util-device.h:
 /usr/local/include/rte_mempool.h:
-/usr/local/include/rte_compat.h:
 /usr/local/include/rte_spinlock.h:
 /usr/local/include/generic/rte_spinlock.h:
 /usr/local/include/rte_lcore.h:
@@ -564,15 +556,16 @@ util-device.h:
 /usr/include/x86_64-linux-gnu/bits/setjmp.h:
 /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h:
 /usr/local/include/rte_eal.h:
-/usr/local/include/rte_uuid.h:
+/usr/local/include/rte_compat.h:
+/usr/local/include/rte_bus.h:
+/usr/local/include/rte_log.h:
+/usr/local/include/rte_common.h:
+/usr/local/include/rte_os.h:
+/usr/local/include/rte_dev.h:
 /usr/local/include/rte_pci_dev_feature_defs.h:
 /usr/local/include/rte_launch.h:
-/usr/local/include/rte_thread.h:
-/usr/local/include/rte_os.h:
-/usr/local/include/rte_lock_annotations.h:
 /usr/local/include/rte_pause.h:
 /usr/local/include/generic/rte_pause.h:
-/usr/local/include/rte_common.h:
 /usr/local/include/rte_atomic.h:
 /usr/local/include/generic/rte_atomic.h:
 /usr/local/include/rte_atomic_64.h:
@@ -586,26 +579,16 @@ util-device.h:
 /usr/local/include/generic/rte_cycles.h:
 /usr/local/include/rte_debug.h:
 /usr/local/include/rte_log.h:
-/usr/local/include/rte_branch_prediction.h:
-/usr/local/include/rte_ring.h:
-/usr/local/include/rte_ring_core.h:
 /usr/local/include/rte_memory.h:
-/usr/local/include/rte_bitops.h:
 /usr/local/include/rte_fbarray.h:
 /usr/local/include/rte_rwlock.h:
 /usr/local/include/generic/rte_rwlock.h:
 /usr/local/include/rte_spinlock.h:
+/usr/local/include/rte_branch_prediction.h:
+/usr/local/include/rte_ring.h:
+/usr/local/include/rte_ring_core.h:
 /usr/local/include/rte_memzone.h:
-/usr/local/include/rte_ring_elem.h:
-/usr/local/include/rte_ring_elem_pvt.h:
-/usr/local/include/rte_ring_generic_pvt.h:
-/usr/local/include/rte_ring_hts.h:
-/usr/local/include/rte_ring_hts_elem_pvt.h:
-/usr/local/include/rte_ring_rts.h:
-/usr/local/include/rte_ring_rts_elem_pvt.h:
-/usr/local/include/rte_ring_peek.h:
-/usr/local/include/rte_ring_peek_elem_pvt.h:
-/usr/local/include/rte_ring_peek_zc.h:
+/usr/local/include/rte_ring_generic.h:
 /usr/local/include/rte_memcpy.h:
 /usr/local/include/rte_vect.h:
 /usr/local/include/generic/rte_vect.h:
@@ -693,4 +676,5 @@ util-device.h:
 /usr/local/include/rte_trace_point.h:
 /usr/local/include/rte_cycles.h:
 /usr/local/include/rte_string_fns.h:
+/usr/local/include/rte_uuid.h:
 util-storage.h:

@@ -83,6 +83,7 @@ static void InitEal(void);
 static void ConfigSetIface(DPDKIfaceConfig *iconf, const char *entry_str);
 static int ConfigSetMacAddress(DPDKIfaceConfig *iconf, const char *entry_str);
 static int ConfigSetHostMacAddress(DPDKIfaceConfig *iconf, const char *entry_str);
+static int ConfigSetProxy(DPDKIfaceConfig *iconf, const char *entry_str);
 static int ConfigSetThreads(DPDKIfaceConfig *iconf, const char *entry_str);
 static int ConfigSetRxQueues(DPDKIfaceConfig *iconf, uint16_t nb_queues);
 static int ConfigSetTxQueues(DPDKIfaceConfig *iconf, uint16_t nb_queues);
@@ -145,6 +146,7 @@ DPDKIfaceConfigAttributes dpdk_yaml = {
     .tx = "tx",
     .mac_addr = "mac-address",
     .host_mac_addr = "host-mac-address",
+    .proxies = "proxies",
 };
 
 static int GreatestDivisorUpTo(uint32_t num, uint32_t max_num)
@@ -298,7 +300,7 @@ static void InitEal(void)
     }
     memcpy(eal_argv, args.argv, args.argc * sizeof(*args.argv));
 
-    rte_log_set_global_level(RTE_LOG_WARNING);
+    rte_log_set_global_level(RTE_LOG_INFO);
     retval = rte_eal_init(args.argc, eal_argv);
 
     ArgumentsCleanup(&args);
@@ -339,6 +341,7 @@ static void ConfigInit(DPDKIfaceConfig **iconf)
     (void)SC_ATOMIC_ADD(ptr->ref, 1);
     ptr->DerefFunc = DPDKDerefConfig;
     ptr->flags = 0;
+    ptr->num_proxies = 0;
 
     *iconf = ptr;
     SCReturn;
@@ -418,9 +421,32 @@ static int ConfigSetHostMacAddress(DPDKIfaceConfig *iconf, const char *entry_str
                             (uint32_t)(ptr[2]) << 16 |
                             (uint32_t)(ptr[1]) << 8 |
                             (uint32_t)(ptr[0]));
+    strcpy(iconf->mac_proxy, entry_str);
     SCReturn(0);
 }
-
+static int ConfigSetProxy(DPDKIfaceConfig *iconf, const char *entry_str)
+{
+    SCEnter();
+    int rerval;
+    char tmp_str[100];
+    strcpy(tmp_str, entry_str);
+    if (entry_str == NULL || entry_str[0] == '\0')
+    {
+        SCLogError("Proxy in DPDK config is NULL or empty");
+        SCReturnInt(-EINVAL);
+    }
+    if (iconf->num_proxies >= MAX_TCP_PROXIES)
+    {
+        SCLogError("Proxy in DPDK is over %d\n", MAX_TCP_PROXIES);
+        SCReturnInt(-EINVAL);
+    }
+    char *p = strtok (tmp_str, ":");
+    strcpy(iconf->proxies[iconf->num_proxies], p);
+    p = strtok (NULL, ":");
+    iconf->port[iconf->num_proxies] = strtoul(p,NULL,0);
+    iconf->num_proxies++;
+    SCReturn(0);
+}
 static int ConfigSetThreads(DPDKIfaceConfig *iconf, const char *entry_str)
 {
     SCEnter();
@@ -762,7 +788,6 @@ static int ConfigLoad(DPDKIfaceConfig *iconf, const char *iface)
     const char *copy_mode_str = NULL;
 
     ConfigSetIface(iconf, iface);
-
     retval = ConfSetRootAndDefaultNodes("dpdk.interfaces", iconf->iface, &if_root, &if_default);
     if (retval < 0) {
         FatalError("failed to find DPDK configuration for the interface %s", iconf->iface);
@@ -885,6 +910,14 @@ static int ConfigLoad(DPDKIfaceConfig *iconf, const char *iface)
                      : ConfigSetHostMacAddress(iconf, entry_str);
     if (retval < 0)
         SCReturnInt(retval);
+    ConfNode *node = ConfNodeLookupChild(if_root, dpdk_yaml.proxies);
+    if (node)
+    {
+        ConfNode *lnode;
+        TAILQ_FOREACH(lnode, &node->head, next) {
+            ConfigSetProxy(iconf, lnode->val);
+        }
+    }
     SCReturnInt(0);
 }
 

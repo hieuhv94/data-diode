@@ -154,13 +154,13 @@ MANS = $(dist_man1_MANS)
 am__tagged_files = $(HEADERS) $(SOURCES) $(TAGS_FILES) $(LISP)
 am__DIST_COMMON = $(dist_man1_MANS) $(srcdir)/Makefile.in README.md
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} '/home/suri/workspaces/suricata-7.0.1/missing' aclocal-1.16
+ACLOCAL = ${SHELL} '/home/suri/workspaces/data-diode/missing' aclocal-1.16
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 0
 AR = ar
-AUTOCONF = ${SHELL} '/home/suri/workspaces/suricata-7.0.1/missing' autoconf
-AUTOHEADER = ${SHELL} '/home/suri/workspaces/suricata-7.0.1/missing' autoheader
-AUTOMAKE = ${SHELL} '/home/suri/workspaces/suricata-7.0.1/missing' automake-1.16
+AUTOCONF = ${SHELL} '/home/suri/workspaces/data-diode/missing' autoconf
+AUTOHEADER = ${SHELL} '/home/suri/workspaces/data-diode/missing' autoheader
+AUTOMAKE = ${SHELL} '/home/suri/workspaces/data-diode/missing' automake-1.16
 AWK = gawk
 CARGO = /usr/bin/cargo
 CARGO_BUILD_TARGET = 
@@ -168,15 +168,15 @@ CARGO_HOME = /home/suri/.cargo
 CBINDGEN = no
 CC = gcc
 CCDEPMODE = depmode=gcc3
-CFLAGS = -g -O2 -fPIC -std=c11 -march=native -include rte_config.h -march=native -I/usr/local/include -I${srcdir}/../rust/gen -I${srcdir}/../rust/dist
+CFLAGS = -g -O2 -fPIC -std=c11 -march=native -include rte_config.h -march=native -I/usr/local/include -I /home/suri/workspaces/tldk/x86_64-native-linux-gcc/include -I${srcdir}/../rust/gen -I${srcdir}/../rust/dist
 CLANG = 
 CLANG_CFLAGS = 
-CONFIGURE_DATAROOTDIR = /usr/local/share
-CONFIGURE_LOCALSTATEDIR = /usr/local/var
-CONFIGURE_PREFIX = /usr/local
-CONFIGURE_SYSCONDIR = /usr/local/etc
+CONFIGURE_DATAROOTDIR = /usr/share
+CONFIGURE_LOCALSTATEDIR = /var
+CONFIGURE_PREFIX = /usr
+CONFIGURE_SYSCONDIR = /etc
 CPP = gcc -E
-CPPFLAGS = -I${srcdir}/../libhtp/   -D__SCFILENAME__=\"$(*F)\"
+CPPFLAGS = -I${srcdir}/../libhtp/    -D__SCFILENAME__=\"$(*F)\"
 CSCOPE = cscope
 CTAGS = ctags
 CXX = g++
@@ -223,7 +223,7 @@ LIBHTPDEVVERSION_LIBS =
 LIBHTPMINVERSION_CFLAGS = 
 LIBHTPMINVERSION_LIBS = 
 LIBOBJS = 
-LIBS = -lmagic -lcap-ng -lnuma -lpcap -lnet -ljansson -lpthread -lyaml -lpcre2-8  -lz -lpcap -Wl,-R,/usr/local/lib/x86_64-linux-gnu -lnuma -L/usr/local/lib/x86_64-linux-gnu -Wl,--as-needed -lrte_node -lrte_graph -lrte_pipeline -lrte_table -lrte_pdump -lrte_port -lrte_fib -lrte_pdcp -lrte_ipsec -lrte_vhost -lrte_stack -lrte_security -lrte_sched -lrte_reorder -lrte_rib -lrte_dmadev -lrte_mldev -lrte_regexdev -lrte_rawdev -lrte_power -lrte_pcapng -lrte_member -lrte_lpm -lrte_latencystats -lrte_jobstats -lrte_ip_frag -lrte_gso -lrte_gro -lrte_gpudev -lrte_eventdev -lrte_efd -lrte_distributor -lrte_cryptodev -lrte_compressdev -lrte_cfgfile -lrte_bpf -lrte_bitratestats -lrte_bbdev -lrte_acl -lrte_timer -lrte_hash -lrte_metrics -lrte_cmdline -lrte_pci -lrte_ethdev -lrte_meter -lrte_net -lrte_mbuf -lrte_mempool -lrte_rcu -lrte_ring -lrte_eal -lrte_telemetry -lrte_kvargs -lrte_net_bond
+LIBS = -lmagic -lcap-ng -lnuma -lpcap -lnet -lnetfilter_queue -lnfnetlink -ljansson -lpthread -lyaml -lpcre2-8  -lz -lpcap -Wl,-R,/usr/local/lib/x86_64-linux-gnu -lnuma -L/usr/local/lib/x86_64-linux-gnu -lrte_node -lrte_graph -lrte_bpf -lrte_flow_classify -lrte_pipeline -lrte_table -lrte_port -lrte_fib -lrte_ipsec -lrte_vhost -lrte_stack -lrte_security -lrte_sched -lrte_reorder -lrte_rib -lrte_rawdev -lrte_pdump -lrte_power -lrte_member -lrte_lpm -lrte_latencystats -lrte_kni -lrte_jobstats -lrte_ip_frag -lrte_gso -lrte_gro -lrte_eventdev -lrte_efd -lrte_distributor -lrte_cryptodev -lrte_compressdev -lrte_cfgfile -lrte_bitratestats -lrte_bbdev -lrte_acl -lrte_timer -lrte_hash -lrte_metrics -lrte_cmdline -lrte_pci -lrte_ethdev -lrte_meter -lrte_net -lrte_mbuf -lrte_mempool -lrte_rcu -lrte_ring -lrte_eal -lrte_telemetry -lrte_kvargs -L/home/suri/workspaces/tldk/x86_64-native-linux-gcc/lib -ltle_dring -ltle_l4p -ltle_memtank -ltle_misc -ltle_timer -lrte_ring -lrte_hash -lrte_pmd_bond
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LIB_FUZZING_ENGINE = 
 LIPO = 
@@ -237,7 +237,7 @@ LUA_CFLAGS =
 LUA_INT8 = 
 LUA_LIBS = 
 MAJOR_MINOR = 7.0
-MAKEINFO = ${SHELL} '/home/suri/workspaces/suricata-7.0.1/missing' makeinfo
+MAKEINFO = ${SHELL} '/home/suri/workspaces/data-diode/missing' makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /usr/bin/mkdir -p
 NM = /usr/bin/nm -B
@@ -279,10 +279,10 @@ SPHINX_BUILD = no
 STRIP = strip
 SURICATA_UPDATE_DIR = suricata-update
 VERSION = 7.0.1
-abs_builddir = /home/suri/workspaces/suricata-7.0.1/doc/userguide
-abs_srcdir = /home/suri/workspaces/suricata-7.0.1/doc/userguide
-abs_top_builddir = /home/suri/workspaces/suricata-7.0.1
-abs_top_srcdir = /home/suri/workspaces/suricata-7.0.1
+abs_builddir = /home/suri/workspaces/data-diode/doc/userguide
+abs_srcdir = /home/suri/workspaces/data-diode/doc/userguide
+abs_top_builddir = /home/suri/workspaces/data-diode
+abs_top_srcdir = /home/suri/workspaces/data-diode
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_CXX = g++
@@ -303,19 +303,19 @@ datadir = ${datarootdir}
 datarootdir = ${prefix}/share
 docdir = ${datarootdir}/doc/${PACKAGE_TARNAME}
 dvidir = ${docdir}
-e_datadir = /usr/local/var/lib/suricata/data
-e_datarulesdir = /usr/local/share/suricata/rules
-e_defaultruledir = /usr/local/var/lib/suricata/rules
+e_datadir = /var/lib/suricata/data
+e_datarulesdir = /usr/share/suricata/rules
+e_defaultruledir = /var/lib/suricata/rules
 e_enable_evelog = yes
-e_localstatedir = /usr/local/var/run/suricata
-e_logcertsdir = /usr/local/var/log/suricata/certs
-e_logdir = /usr/local/var/log/suricata/
-e_logfilesdir = /usr/local/var/log/suricata/files
+e_localstatedir = /var/run/suricata
+e_logcertsdir = /var/log/suricata/certs
+e_logdir = /var/log/suricata/
+e_logfilesdir = /var/log/suricata/files
 e_magic_file = 
 e_magic_file_comment = #
-e_rundir = /usr/local/var/run/
-e_rustdir = /home/suri/workspaces/suricata-7.0.1/rust
-e_sysconfdir = /usr/local/etc/suricata/
+e_rundir = /var/run/
+e_rustdir = /home/suri/workspaces/data-diode/rust
+e_sysconfdir = /etc/suricata/
 enable_non_bundled_htp = no
 exec_prefix = ${prefix}
 have_rustup = no
@@ -327,7 +327,7 @@ host_vendor = pc
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/suri/workspaces/suricata-7.0.1/install-sh
+install_sh = ${SHELL} /home/suri/workspaces/data-diode/install-sh
 install_suricata_update_reason = 
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
@@ -336,14 +336,14 @@ libhs_LIBS =
 libhtp_CFLAGS = 
 libhtp_LIBS = 
 libnetfilter_queue_CFLAGS = 
-libnetfilter_queue_LIBS = 
+libnetfilter_queue_LIBS = -lnetfilter_queue -lnfnetlink
 localedir = ${datarootdir}/locale
-localstatedir = ${prefix}/var
+localstatedir = /var
 mandir = ${datarootdir}/man
 mkdir_p = $(MKDIR_P)
 oldincludedir = /usr/include
 pdfdir = ${docdir}
-prefix = /usr/local
+prefix = /usr
 program_transform_name = s,x,x,
 psdir = ${docdir}
 runstatedir = ${localstatedir}/run
@@ -353,7 +353,7 @@ sbindir = ${exec_prefix}/sbin
 sharedstatedir = ${prefix}/com
 srcdir = .
 subdirs =  libhtp
-sysconfdir = ${prefix}/etc
+sysconfdir = /etc
 target_alias = 
 top_build_prefix = ../../
 top_builddir = ../..
@@ -382,9 +382,9 @@ $(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --gnu doc/userguide/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign doc/userguide/Makefile'; \
 	$(am__cd) $(top_srcdir) && \
-	  $(AUTOMAKE) --gnu doc/userguide/Makefile
+	  $(AUTOMAKE) --foreign doc/userguide/Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
 	  *config.status*) \

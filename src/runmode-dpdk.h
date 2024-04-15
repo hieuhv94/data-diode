@@ -40,6 +40,7 @@ typedef struct DPDKIfaceConfigAttributes_ {
     const char *tx;
     const char *mac_addr;
     const char *host_mac_addr;
+    const char* proxies;
 } DPDKIfaceConfigAttributes;
 
 int RunModeIdsDpdkWorkers(void);

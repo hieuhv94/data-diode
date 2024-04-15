@@ -151,6 +151,7 @@ am__v_AR_0 = @echo "  AR      " $@;
 am__v_AR_1 = 
 libsuricata_c_a_AR = $(AR) $(ARFLAGS)
 libsuricata_c_a_LIBADD =
+am__dirstamp = $(am__leading_dot)dirstamp
 am_libsuricata_c_a_OBJECTS = alert-debuglog.$(OBJEXT) \
 	alert-fastlog.$(OBJEXT) alert-syslog.$(OBJEXT) \
 	app-layer.$(OBJEXT) app-layer-detect-proto.$(OBJEXT) \
@@ -417,11 +418,12 @@ am_libsuricata_c_a_OBJECTS = alert-debuglog.$(OBJEXT) \
 	tm-modules.$(OBJEXT) tmqh-flow.$(OBJEXT) \
 	tmqh-packetpool.$(OBJEXT) tmqh-simple.$(OBJEXT) \
 	tm-queuehandlers.$(OBJEXT) tm-queues.$(OBJEXT) \
-	tm-threads.$(OBJEXT) unix-manager.$(OBJEXT) \
-	util-action.$(OBJEXT) util-affinity.$(OBJEXT) \
-	util-atomic.$(OBJEXT) util-base64.$(OBJEXT) \
-	util-bloomfilter.$(OBJEXT) util-bloomfilter-counting.$(OBJEXT) \
-	util-bpf.$(OBJEXT) util-buffer.$(OBJEXT) util-byte.$(OBJEXT) \
+	tm-threads.$(OBJEXT) tldk/parse.$(OBJEXT) tldk/pkt.$(OBJEXT) \
+	unix-manager.$(OBJEXT) util-action.$(OBJEXT) \
+	util-affinity.$(OBJEXT) util-atomic.$(OBJEXT) \
+	util-base64.$(OBJEXT) util-bloomfilter.$(OBJEXT) \
+	util-bloomfilter-counting.$(OBJEXT) util-bpf.$(OBJEXT) \
+	util-buffer.$(OBJEXT) util-byte.$(OBJEXT) \
 	util-checksum.$(OBJEXT) util-cidr.$(OBJEXT) \
 	util-classification-config.$(OBJEXT) util-conf.$(OBJEXT) \
 	util-coredump-config.$(OBJEXT) util-cpu.$(OBJEXT) \
@@ -482,7 +484,6 @@ am_libsuricata_c_a_OBJECTS = alert-debuglog.$(OBJEXT) \
 libsuricata_c_a_OBJECTS = $(am_libsuricata_c_a_OBJECTS)
 am__fuzz_applayerparserparse_SOURCES_DIST =  \
 	tests/fuzz/fuzz_applayerparserparse.c tests/fuzz/onefile.c
-am__dirstamp = $(am__leading_dot)dirstamp
 @BUILD_FUZZTARGETS_TRUE@@HAS_FUZZLDFLAGS_FALSE@am__objects_1 = tests/fuzz/onefile.$(OBJEXT)
 @BUILD_FUZZTARGETS_TRUE@am_fuzz_applayerparserparse_OBJECTS = tests/fuzz/fuzz_applayerparserparse.$(OBJEXT) \
 @BUILD_FUZZTARGETS_TRUE@	$(am__objects_1)
@@ -1028,7 +1029,8 @@ am__depfiles_remade = ./$(DEPDIR)/alert-debuglog.Po \
 	tests/fuzz/$(DEPDIR)/fuzz_siginit.Po \
 	tests/fuzz/$(DEPDIR)/fuzz_sigpcap.Po \
 	tests/fuzz/$(DEPDIR)/fuzz_sigpcap_aware.Po \
-	tests/fuzz/$(DEPDIR)/onefile.Po
+	tests/fuzz/$(DEPDIR)/onefile.Po tldk/$(DEPDIR)/parse.Po \
+	tldk/$(DEPDIR)/pkt.Po
 am__mv = mv -f
 COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
@@ -2413,6 +2415,8 @@ libsuricata_c_a_SOURCES = \
 	tm-queuehandlers.c \
 	tm-queues.c \
 	tm-threads.c \
+	tldk/parse.c \
+	tldk/pkt.c \
 	unix-manager.c \
 	util-action.c \
 	util-affinity.c \
@@ -2694,9 +2698,9 @@ $(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --gnu src/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign src/Makefile'; \
 	$(am__cd) $(top_srcdir) && \
-	  $(AUTOMAKE) --gnu src/Makefile
+	  $(AUTOMAKE) --foreign src/Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
 	  *config.status*) \
@@ -2781,6 +2785,16 @@ clean-binPROGRAMS:
 
 clean-noinstLIBRARIES:
 	-test -z "$(noinst_LIBRARIES)" || rm -f $(noinst_LIBRARIES)
+tldk/$(am__dirstamp):
+	@$(MKDIR_P) tldk
+	@: > tldk/$(am__dirstamp)
+tldk/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) tldk/$(DEPDIR)
+	@: > tldk/$(DEPDIR)/$(am__dirstamp)
+tldk/parse.$(OBJEXT): tldk/$(am__dirstamp) \
+	tldk/$(DEPDIR)/$(am__dirstamp)
+tldk/pkt.$(OBJEXT): tldk/$(am__dirstamp) \
+	tldk/$(DEPDIR)/$(am__dirstamp)
 
 libsuricata_c.a: $(libsuricata_c_a_OBJECTS) $(libsuricata_c_a_DEPENDENCIES) $(EXTRA_libsuricata_c_a_DEPENDENCIES) 
 	$(AM_V_at)-rm -f libsuricata_c.a
@@ -2861,6 +2875,7 @@ suricata$(EXEEXT): $(suricata_OBJECTS) $(suricata_DEPENDENCIES) $(EXTRA_suricata
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
 	-rm -f tests/fuzz/*.$(OBJEXT)
+	-rm -f tldk/*.$(OBJEXT)
 
 distclean-compile:
 	-rm -f *.tab.c
@@ -3474,6 +3489,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@tests/fuzz/$(DEPDIR)/fuzz_sigpcap.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@tests/fuzz/$(DEPDIR)/fuzz_sigpcap_aware.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@tests/fuzz/$(DEPDIR)/onefile.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@tldk/$(DEPDIR)/parse.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@tldk/$(DEPDIR)/pkt.Po@am__quote@ # am--include-marker
 
 $(am__depfiles_remade):
 	@$(MKDIR_P) $(@D)
@@ -3654,6 +3671,8 @@ distclean-generic:
 	-test . = "$(srcdir)" || test -z "$(CONFIG_CLEAN_VPATH_FILES)" || rm -f $(CONFIG_CLEAN_VPATH_FILES)
 	-rm -f tests/fuzz/$(DEPDIR)/$(am__dirstamp)
 	-rm -f tests/fuzz/$(am__dirstamp)
+	-rm -f tldk/$(DEPDIR)/$(am__dirstamp)
+	-rm -f tldk/$(am__dirstamp)
 
 maintainer-clean-generic:
 	@echo "This command is intended for maintainers to use"
@@ -4273,6 +4292,8 @@ distclean: distclean-am
 	-rm -f tests/fuzz/$(DEPDIR)/fuzz_sigpcap.Po
 	-rm -f tests/fuzz/$(DEPDIR)/fuzz_sigpcap_aware.Po
 	-rm -f tests/fuzz/$(DEPDIR)/onefile.Po
+	-rm -f tldk/$(DEPDIR)/parse.Po
+	-rm -f tldk/$(DEPDIR)/pkt.Po
 	-rm -f Makefile
 distclean-am: clean-am distclean-compile distclean-generic \
 	distclean-hdr distclean-local distclean-tags
@@ -4927,6 +4948,8 @@ maintainer-clean: maintainer-clean-am
 	-rm -f tests/fuzz/$(DEPDIR)/fuzz_sigpcap.Po
 	-rm -f tests/fuzz/$(DEPDIR)/fuzz_sigpcap_aware.Po
 	-rm -f tests/fuzz/$(DEPDIR)/onefile.Po
+	-rm -f tldk/$(DEPDIR)/parse.Po
+	-rm -f tldk/$(DEPDIR)/pkt.Po
 	-rm -f Makefile
 maintainer-clean-am: distclean-am maintainer-clean-generic
 

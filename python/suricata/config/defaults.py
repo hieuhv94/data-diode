@@ -1,3 +1,3 @@
-sysconfdir = "/usr/local/etc/suricata/"
-datarulesdir = "/usr/local/share/suricata/rules"
-localstatedir = "/usr/local/var/run/suricata"
+sysconfdir = "/etc/suricata/"
+datarulesdir = "/usr/share/suricata/rules"
+localstatedir = "/var/run/suricata"

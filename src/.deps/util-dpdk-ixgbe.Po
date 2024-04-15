@@ -194,50 +194,15 @@ util-dpdk-ixgbe.o: util-dpdk-ixgbe.c /usr/include/stdc-predef.h \
  /usr/local/include/rte_per_lcore.h /usr/include/pthread.h \
  /usr/include/x86_64-linux-gnu/bits/setjmp.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h \
- /usr/local/include/rte_uuid.h \
+ /usr/local/include/rte_bus.h /usr/local/include/rte_log.h \
+ /usr/local/include/rte_common.h /usr/local/include/rte_os.h \
+ /usr/local/include/rte_dev.h \
  /usr/local/include/rte_pci_dev_feature_defs.h \
- /usr/local/include/rte_ethdev.h /usr/local/include/rte_cman.h \
- /usr/local/include/rte_bitops.h /usr/local/include/rte_debug.h \
- /usr/local/include/rte_log.h /usr/local/include/rte_common.h \
- /usr/local/include/rte_os.h /usr/local/include/rte_branch_prediction.h \
- /usr/local/include/rte_log.h /usr/local/include/rte_interrupts.h \
- /usr/local/include/rte_epoll.h /usr/local/include/rte_dev.h \
- /usr/local/include/rte_devargs.h /usr/local/include/rte_errno.h \
- /usr/local/include/rte_power_intrinsics.h \
- /usr/local/include/generic/rte_power_intrinsics.h \
- /usr/local/include/rte_spinlock.h \
- /usr/local/include/generic/rte_spinlock.h /usr/local/include/rte_lcore.h \
- /usr/local/include/rte_launch.h /usr/local/include/rte_thread.h \
- /usr/local/include/rte_lock_annotations.h /usr/local/include/rte_pause.h \
- /usr/local/include/generic/rte_pause.h /usr/local/include/rte_atomic.h \
- /usr/local/include/generic/rte_atomic.h \
- /usr/local/include/rte_atomic_64.h /usr/local/include/rte_rtm.h \
- /usr/local/include/rte_cpuflags.h \
- /usr/local/include/generic/rte_cpuflags.h \
- /usr/local/include/rte_common.h /usr/local/include/rte_pause.h \
- /usr/local/include/rte_cycles.h /usr/local/include/generic/rte_cycles.h \
- /usr/local/include/rte_ethdev_trace_fp.h \
- /usr/local/include/rte_trace_point.h \
- /usr/local/include/rte_branch_prediction.h \
- /usr/local/include/rte_cycles.h /usr/local/include/rte_string_fns.h \
- /usr/local/include/rte_dev_info.h /usr/local/include/rte_eth_ctrl.h \
- /usr/local/include/rte_ether.h /usr/local/include/rte_random.h \
- /usr/local/include/rte_mbuf.h /usr/local/include/rte_mempool.h \
- /usr/local/include/rte_ring.h /usr/local/include/rte_ring_core.h \
- /usr/local/include/rte_memory.h /usr/local/include/rte_fbarray.h \
- /usr/local/include/rte_rwlock.h /usr/local/include/generic/rte_rwlock.h \
- /usr/local/include/rte_spinlock.h /usr/local/include/rte_memzone.h \
- /usr/local/include/rte_ring_elem.h \
- /usr/local/include/rte_ring_elem_pvt.h \
- /usr/local/include/rte_ring_generic_pvt.h \
- /usr/local/include/rte_ring_hts.h \
- /usr/local/include/rte_ring_hts_elem_pvt.h \
- /usr/local/include/rte_ring_rts.h \
- /usr/local/include/rte_ring_rts_elem_pvt.h \
- /usr/local/include/rte_ring_peek.h \
- /usr/local/include/rte_ring_peek_elem_pvt.h \
- /usr/local/include/rte_ring_peek_zc.h /usr/local/include/rte_memcpy.h \
- /usr/local/include/rte_vect.h /usr/local/include/generic/rte_vect.h \
+ /usr/local/include/rte_ethdev.h /usr/local/include/rte_interrupts.h \
+ /usr/local/include/rte_eal_interrupts.h /usr/local/include/rte_devargs.h \
+ /usr/local/include/rte_errno.h /usr/local/include/rte_ether.h \
+ /usr/local/include/rte_memcpy.h /usr/local/include/rte_vect.h \
+ /usr/local/include/generic/rte_vect.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/x86intrin.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/x86gprintrin.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/ia32intrin.h \
@@ -318,24 +283,43 @@ util-dpdk-ixgbe.o: util-dpdk-ixgbe.c /usr/include/stdc-predef.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/fma4intrin.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/ammintrin.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/xopintrin.h \
+ /usr/local/include/rte_random.h /usr/local/include/rte_mbuf.h \
+ /usr/local/include/rte_mempool.h /usr/local/include/rte_spinlock.h \
+ /usr/local/include/generic/rte_spinlock.h /usr/local/include/rte_lcore.h \
+ /usr/local/include/rte_launch.h /usr/local/include/rte_pause.h \
+ /usr/local/include/generic/rte_pause.h /usr/local/include/rte_atomic.h \
+ /usr/local/include/generic/rte_atomic.h \
+ /usr/local/include/rte_atomic_64.h /usr/local/include/rte_rtm.h \
+ /usr/local/include/rte_cpuflags.h \
+ /usr/local/include/generic/rte_cpuflags.h \
+ /usr/local/include/rte_branch_prediction.h \
+ /usr/local/include/rte_common.h /usr/local/include/rte_pause.h \
+ /usr/local/include/rte_cycles.h /usr/local/include/generic/rte_cycles.h \
+ /usr/local/include/rte_debug.h /usr/local/include/rte_log.h \
+ /usr/local/include/rte_memory.h /usr/local/include/rte_fbarray.h \
+ /usr/local/include/rte_rwlock.h /usr/local/include/generic/rte_rwlock.h \
+ /usr/local/include/rte_spinlock.h \
+ /usr/local/include/rte_branch_prediction.h /usr/local/include/rte_ring.h \
+ /usr/local/include/rte_ring_core.h /usr/local/include/rte_memzone.h \
+ /usr/local/include/rte_ring_generic.h \
  /usr/local/include/rte_mempool_trace_fp.h \
+ /usr/local/include/rte_trace_point.h /usr/local/include/rte_cycles.h \
+ /usr/local/include/rte_string_fns.h /usr/local/include/rte_uuid.h \
  /usr/local/include/rte_prefetch.h \
  /usr/local/include/generic/rte_prefetch.h \
- /usr/local/include/rte_mbuf_ptype.h /usr/local/include/rte_mbuf_core.h \
  /usr/local/include/rte_byteorder.h \
  /usr/local/include/generic/rte_byteorder.h \
- /usr/local/include/rte_byteorder_64.h /usr/local/include/rte_flow.h \
- /usr/local/include/rte_arp.h /usr/local/include/rte_icmp.h \
- /usr/local/include/rte_ip.h /usr/include/netinet/ip.h \
- /usr/include/netinet/ip6.h /usr/local/include/rte_sctp.h \
+ /usr/local/include/rte_byteorder_64.h \
+ /usr/local/include/rte_mbuf_ptype.h /usr/local/include/rte_mbuf_core.h \
+ /usr/local/include/generic/rte_atomic.h \
+ /usr/local/include/rte_ethdev_trace_fp.h \
+ /usr/local/include/rte_dev_info.h /usr/local/include/rte_eth_ctrl.h \
+ /usr/local/include/rte_flow.h /usr/local/include/rte_arp.h \
+ /usr/local/include/rte_icmp.h /usr/local/include/rte_ip.h \
+ /usr/include/netinet/ip.h /usr/local/include/rte_sctp.h \
  /usr/local/include/rte_tcp.h /usr/local/include/rte_udp.h \
- /usr/local/include/rte_vxlan.h /usr/local/include/rte_esp.h \
- /usr/local/include/rte_higig.h /usr/local/include/rte_ecpri.h \
- /usr/local/include/rte_mbuf_dyn.h /usr/local/include/rte_meter.h \
- /usr/local/include/rte_gtp.h /usr/local/include/rte_l2tpv2.h \
- /usr/local/include/rte_ppp.h /usr/local/include/rte_gre.h \
- /usr/local/include/rte_macsec.h /usr/local/include/rte_ib.h \
- /usr/local/include/rte_ethdev.h /usr/local/include/rte_ethdev_core.h \
+ /usr/local/include/rte_esp.h /usr/local/include/rte_higig.h \
+ /usr/local/include/rte_mbuf_dyn.h /usr/local/include/rte_ethdev_core.h \
  /usr/local/include/rte_eth_bond.h /usr/local/include/rte_flow.h \
  /usr/local/include/rte_version.h util-device.h
 /usr/include/stdc-predef.h:
@@ -589,71 +573,18 @@ util-dpdk.h:
 /usr/include/pthread.h:
 /usr/include/x86_64-linux-gnu/bits/setjmp.h:
 /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h:
-/usr/local/include/rte_uuid.h:
-/usr/local/include/rte_pci_dev_feature_defs.h:
-/usr/local/include/rte_ethdev.h:
-/usr/local/include/rte_cman.h:
-/usr/local/include/rte_bitops.h:
-/usr/local/include/rte_debug.h:
+/usr/local/include/rte_bus.h:
 /usr/local/include/rte_log.h:
 /usr/local/include/rte_common.h:
 /usr/local/include/rte_os.h:
-/usr/local/include/rte_branch_prediction.h:
-/usr/local/include/rte_log.h:
-/usr/local/include/rte_interrupts.h:
-/usr/local/include/rte_epoll.h:
 /usr/local/include/rte_dev.h:
+/usr/local/include/rte_pci_dev_feature_defs.h:
+/usr/local/include/rte_ethdev.h:
+/usr/local/include/rte_interrupts.h:
+/usr/local/include/rte_eal_interrupts.h:
 /usr/local/include/rte_devargs.h:
 /usr/local/include/rte_errno.h:
-/usr/local/include/rte_power_intrinsics.h:
-/usr/local/include/generic/rte_power_intrinsics.h:
-/usr/local/include/rte_spinlock.h:
-/usr/local/include/generic/rte_spinlock.h:
-/usr/local/include/rte_lcore.h:
-/usr/local/include/rte_launch.h:
-/usr/local/include/rte_thread.h:
-/usr/local/include/rte_lock_annotations.h:
-/usr/local/include/rte_pause.h:
-/usr/local/include/generic/rte_pause.h:
-/usr/local/include/rte_atomic.h:
-/usr/local/include/generic/rte_atomic.h:
-/usr/local/include/rte_atomic_64.h:
-/usr/local/include/rte_rtm.h:
-/usr/local/include/rte_cpuflags.h:
-/usr/local/include/generic/rte_cpuflags.h:
-/usr/local/include/rte_common.h:
-/usr/local/include/rte_pause.h:
-/usr/local/include/rte_cycles.h:
-/usr/local/include/generic/rte_cycles.h:
-/usr/local/include/rte_ethdev_trace_fp.h:
-/usr/local/include/rte_trace_point.h:
-/usr/local/include/rte_branch_prediction.h:
-/usr/local/include/rte_cycles.h:
-/usr/local/include/rte_string_fns.h:
-/usr/local/include/rte_dev_info.h:
-/usr/local/include/rte_eth_ctrl.h:
 /usr/local/include/rte_ether.h:
-/usr/local/include/rte_random.h:
-/usr/local/include/rte_mbuf.h:
-/usr/local/include/rte_mempool.h:
-/usr/local/include/rte_ring.h:
-/usr/local/include/rte_ring_core.h:
-/usr/local/include/rte_memory.h:
-/usr/local/include/rte_fbarray.h:
-/usr/local/include/rte_rwlock.h:
-/usr/local/include/generic/rte_rwlock.h:
-/usr/local/include/rte_spinlock.h:
-/usr/local/include/rte_memzone.h:
-/usr/local/include/rte_ring_elem.h:
-/usr/local/include/rte_ring_elem_pvt.h:
-/usr/local/include/rte_ring_generic_pvt.h:
-/usr/local/include/rte_ring_hts.h:
-/usr/local/include/rte_ring_hts_elem_pvt.h:
-/usr/local/include/rte_ring_rts.h:
-/usr/local/include/rte_ring_rts_elem_pvt.h:
-/usr/local/include/rte_ring_peek.h:
-/usr/local/include/rte_ring_peek_elem_pvt.h:
-/usr/local/include/rte_ring_peek_zc.h:
 /usr/local/include/rte_memcpy.h:
 /usr/local/include/rte_vect.h:
 /usr/local/include/generic/rte_vect.h:
@@ -737,36 +668,65 @@ util-dpdk.h:
 /usr/lib/gcc/x86_64-linux-gnu/11/include/fma4intrin.h:
 /usr/lib/gcc/x86_64-linux-gnu/11/include/ammintrin.h:
 /usr/lib/gcc/x86_64-linux-gnu/11/include/xopintrin.h:
+/usr/local/include/rte_random.h:
+/usr/local/include/rte_mbuf.h:
+/usr/local/include/rte_mempool.h:
+/usr/local/include/rte_spinlock.h:
+/usr/local/include/generic/rte_spinlock.h:
+/usr/local/include/rte_lcore.h:
+/usr/local/include/rte_launch.h:
+/usr/local/include/rte_pause.h:
+/usr/local/include/generic/rte_pause.h:
+/usr/local/include/rte_atomic.h:
+/usr/local/include/generic/rte_atomic.h:
+/usr/local/include/rte_atomic_64.h:
+/usr/local/include/rte_rtm.h:
+/usr/local/include/rte_cpuflags.h:
+/usr/local/include/generic/rte_cpuflags.h:
+/usr/local/include/rte_branch_prediction.h:
+/usr/local/include/rte_common.h:
+/usr/local/include/rte_pause.h:
+/usr/local/include/rte_cycles.h:
+/usr/local/include/generic/rte_cycles.h:
+/usr/local/include/rte_debug.h:
+/usr/local/include/rte_log.h:
+/usr/local/include/rte_memory.h:
+/usr/local/include/rte_fbarray.h:
+/usr/local/include/rte_rwlock.h:
+/usr/local/include/generic/rte_rwlock.h:
+/usr/local/include/rte_spinlock.h:
+/usr/local/include/rte_branch_prediction.h:
+/usr/local/include/rte_ring.h:
+/usr/local/include/rte_ring_core.h:
+/usr/local/include/rte_memzone.h:
+/usr/local/include/rte_ring_generic.h:
 /usr/local/include/rte_mempool_trace_fp.h:
+/usr/local/include/rte_trace_point.h:
+/usr/local/include/rte_cycles.h:
+/usr/local/include/rte_string_fns.h:
+/usr/local/include/rte_uuid.h:
 /usr/local/include/rte_prefetch.h:
 /usr/local/include/generic/rte_prefetch.h:
-/usr/local/include/rte_mbuf_ptype.h:
-/usr/local/include/rte_mbuf_core.h:
 /usr/local/include/rte_byteorder.h:
 /usr/local/include/generic/rte_byteorder.h:
 /usr/local/include/rte_byteorder_64.h:
+/usr/local/include/rte_mbuf_ptype.h:
+/usr/local/include/rte_mbuf_core.h:
+/usr/local/include/generic/rte_atomic.h:
+/usr/local/include/rte_ethdev_trace_fp.h:
+/usr/local/include/rte_dev_info.h:
+/usr/local/include/rte_eth_ctrl.h:
 /usr/local/include/rte_flow.h:
 /usr/local/include/rte_arp.h:
 /usr/local/include/rte_icmp.h:
 /usr/local/include/rte_ip.h:
 /usr/include/netinet/ip.h:
-/usr/include/netinet/ip6.h:
 /usr/local/include/rte_sctp.h:
 /usr/local/include/rte_tcp.h:
 /usr/local/include/rte_udp.h:
-/usr/local/include/rte_vxlan.h:
 /usr/local/include/rte_esp.h:
 /usr/local/include/rte_higig.h:
-/usr/local/include/rte_ecpri.h:
 /usr/local/include/rte_mbuf_dyn.h:
-/usr/local/include/rte_meter.h:
-/usr/local/include/rte_gtp.h:
-/usr/local/include/rte_l2tpv2.h:
-/usr/local/include/rte_ppp.h:
-/usr/local/include/rte_gre.h:
-/usr/local/include/rte_macsec.h:
-/usr/local/include/rte_ib.h:
-/usr/local/include/rte_ethdev.h:
 /usr/local/include/rte_ethdev_core.h:
 /usr/local/include/rte_eth_bond.h:
 /usr/local/include/rte_flow.h:

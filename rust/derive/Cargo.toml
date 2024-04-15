@@ -5,7 +5,7 @@ edition = "2021"
 
 [lib]
 proc-macro = true
-path = "/home/suri/workspaces/suricata-7.0.1/rust/derive/src/lib.rs"
+path = "/home/suri/workspaces/data-diode/rust/derive/src/lib.rs"
 
 [dependencies]
 proc-macro-crate = "= 1.1.0"

@@ -14,7 +14,7 @@
 #define BUILD_UNIX_SOCKET 1
 
 /* Building flow capture bypass code */
-/* #undef CAPTURE_OFFLOAD */
+#define CAPTURE_OFFLOAD 1
 
 /* Building flow bypass manager code */
 /* #undef CAPTURE_OFFLOAD_MANAGER */
@@ -23,10 +23,10 @@
 #define CLS 64
 
 /* Our CONFIG_DIR */
-#define CONFIG_DIR "/usr/local/etc/suricata/"
+#define CONFIG_DIR "/etc/suricata/"
 
 /* Our DATA_DIR */
-#define DATA_DIR "/usr/local/var/lib/suricata/data"
+#define DATA_DIR "/var/lib/suricata/data"
 
 /* Enable debug output */
 /* #undef DEBUG */
@@ -251,7 +251,7 @@
 
 /* Define to 1 if you have the `netfilter_queue' library (-lnetfilter_queue).
    */
-/* #undef HAVE_LIBNETFILTER_QUEUE */
+#define HAVE_LIBNETFILTER_QUEUE 1
 
 /* (libnet_have_capabilities_patch) */
 #define HAVE_LIBNET_CAPABILITIES 1
@@ -263,7 +263,7 @@
 #define HAVE_LIBNET_INIT_CONST 1
 
 /* Define to 1 if you have the `nfnetlink' library (-lnfnetlink). */
-/* #undef HAVE_LIBNFNETLINK */
+#define HAVE_LIBNFNETLINK 1
 
 /* Define to 1 if you have the `numa' library (-lnuma). */
 #define HAVE_LIBNUMA 1
@@ -393,16 +393,16 @@
 /* #undef HAVE_NFLOG */
 
 /* Found queue max length support in netfilter_queue */
-/* #undef HAVE_NFQ_MAXLEN */
+#define HAVE_NFQ_MAXLEN 1
 
 /* Found nfq_set_queue_flags function in netfilter_queue */
-/* #undef HAVE_NFQ_SET_QUEUE_FLAGS */
+#define HAVE_NFQ_SET_QUEUE_FLAGS 1
 
 /* Found nfq_set_verdict2 function in netfilter_queue */
-/* #undef HAVE_NFQ_SET_VERDICT2 */
+#define HAVE_NFQ_SET_VERDICT2 1
 
 /* Found nfq_set_verdict_batch function in netfilter_queue */
-/* #undef HAVE_NFQ_SET_VERDICT_BATCH */
+#define HAVE_NFQ_SET_VERDICT_BATCH 1
 
 /* mkdir is not POSIX compliant: single arg */
 /* #undef HAVE_NON_POSIX_MKDIR */
@@ -675,7 +675,7 @@
 /* #undef NAPATECH_ENABLE_BYPASS */
 
 /* Enable Linux Netfilter NFQUEUE support for inline IDP */
-/* #undef NFQ */
+#define NFQ 1
 
 /* For signed version of nfq_get_payload */
 /* #undef NFQ_GET_PAYLOAD_SIGNED */
@@ -717,7 +717,7 @@
 /* #undef PROFILING */
 
 /* Git revision */
-/* #undef REVISION */
+#define REVISION 8116beb 2024-03-29
 
 /* Define to 1 if all of the C90 standard headers exist (not just the ones
    required in a freestanding environment). This macro is provided for

@@ -1,5 +1,5 @@
 # Sample /etc/logrotate.d/suricata configuration file.
-/usr/local/var/log/suricata/*.log /usr/local/var/log/suricata/*.json {
+/var/log/suricata/*.log /var/log/suricata/*.json {
     daily
     missingok
     rotate 5
@@ -8,6 +8,6 @@
     minsize 500k
     sharedscripts
     postrotate
-        /bin/kill -HUP `cat /usr/local/var/run/suricata.pid 2> /dev/null` 2> /dev/null || true
+        /bin/kill -HUP `cat /var/run/suricata.pid 2> /dev/null` 2> /dev/null || true
     endscript
 }

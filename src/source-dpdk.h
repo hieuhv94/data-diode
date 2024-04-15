@@ -29,7 +29,7 @@
 #ifdef HAVE_DPDK
 #include <rte_ethdev.h>
 #endif
-
+#define MAX_TCP_PROXIES 100
 typedef enum { DPDK_COPY_MODE_NONE, DPDK_COPY_MODE_TAP, DPDK_COPY_MODE_IPS } DpdkCopyModeEnum;
 
 #define DPDK_BURST_TX_WAIT_US 1
@@ -79,6 +79,10 @@ typedef struct DPDKIfaceConfig_ {
     bool is_tx;
     uint64_t mac_addr;
     uint64_t host_mac_addr;
+    uint32_t num_proxies;
+    char proxies[MAX_TCP_PROXIES][20];
+    uint16_t port[MAX_TCP_PROXIES];
+    char mac_proxy[20];
 #endif
 } DPDKIfaceConfig;
 
@@ -94,6 +98,8 @@ typedef struct DPDKPacketVars_ {
     uint8_t copy_mode;
     uint64_t mac_addr;
     uint64_t host_mac_addr;
+    uint16_t port_id;
+    struct netbe_lcore *be;
 } DPDKPacketVars;
 
 void TmModuleReceiveDPDKRegister(void);
