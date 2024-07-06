@@ -1416,8 +1416,9 @@
         fi
         CFLAGS="${CFLAGS} `pkg-config --cflags libdpdk`"
         LIBS="${LIBS} -Wl,-R,`pkg-config --libs-only-L libdpdk | cut -c 3-` -lnuma `pkg-config --libs libdpdk`"
-        CFLAGS="${CFLAGS} -I /home/suri/workspaces/tldk/x86_64-native-linux-gcc/include"
-        LIBS="${LIBS} -L/home/suri/workspaces/tldk/x86_64-native-linux-gcc/lib -ltle_dring -ltle_l4p -ltle_memtank -ltle_misc -ltle_timer -lrte_ring -lrte_hash"
+	CFLAGS="${CFLAGS} -I\${srcdir}/../tldk/x86_64-native-linux-gcc/include"
+	LIBS="${LIBS} -L\${srcdir}/../tldk/x86_64-native-linux-gcc/lib -ltle_dring -ltle_l4p -ltle_memtank -ltle_misc -ltle_timer -lrte_ring -lrte_hash"
+
         if test ! -z "$(ldconfig -p | grep librte_net_bond)"; then
             AC_DEFINE([HAVE_DPDK_BOND],[1],(DPDK Bond PMD support enabled))
             enable_dpdk_bond_pmd="yes"
